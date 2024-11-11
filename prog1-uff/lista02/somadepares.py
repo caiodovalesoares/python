@@ -11,4 +11,4 @@ for j in range(1, len(conj) - 1):
     soma = conj[j] + conj[j+1]
     if soma > maiorSoma:
         maiorSoma = soma
-print(maiorSoma)
+print(f'Maior soma de dois números seguidos: {maiorSoma}')
