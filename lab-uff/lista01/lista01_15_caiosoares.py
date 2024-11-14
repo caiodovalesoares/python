@@ -5,14 +5,21 @@
 nome = str(input('Digite o nome da participante: '))
 print('(MARIA encerra o programa)')
 
+#variáveis
 maiorAltura = 0
 segMaiorAltura = 0
 contMaior = 0
 contSeg = 0
-while nome != "MARIA" or nome != "maria":
+
+#while para encerrar programa caso digitem maria
+while nome != "MARIA" and nome != "maria":
     altura = float(input('Digite a altura da participante: '))
+    #atribuição da segunda maior altura
     if altura > maiorAltura:
+        segMaiorAltura = maiorAltura
         maiorAltura = altura
+        contSeg = contMaior
+        contMaior = 0
     if altura < maiorAltura and altura > segMaiorAltura:
         segMaiorAltura = altura
     if altura == maiorAltura:
@@ -32,5 +39,12 @@ else:
     if altura == segMaiorAltura:
         contSeg += 1
 
-print('Maior altura: ', contMaior, 'mulheres com ', maiorAltura)
-print('Segunda maior altura: ', contSeg, 'mulheres com ', segMaiorAltura)
+#resultado
+if contMaior > 1:
+    print('Maior altura: ', contMaior, 'mulheres com ', (maiorAltura), ' de altura')
+else:
+    print('Maior altura: ', contMaior, 'mulher com ', (maiorAltura), ' de altura')
+if contSeg > 1:
+    print('Segunda maior altura: ', contSeg, 'mulheres com ', segMaiorAltura, ' de altura')
+else:
+    print('Segunda maior altura: ', contSeg, 'mulher com ', segMaiorAltura, ' de altura')
