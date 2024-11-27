@@ -1,0 +1,5 @@
+frase = str(input('Digite uma frase: '))
+print(f'Quantidade de caracteres: {len(frase)}')
+print(f'Código Unicode do primeiro caracter: {ord(frase[0])}')
+print(f'Caracter que possui o código {ord(frase[0])}: {chr(ord(frase[0]))}')
+print(f'{frase[::-1]}')
