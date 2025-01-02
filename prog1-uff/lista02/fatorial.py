@@ -5,4 +5,3 @@ for n in range(n, 1, -1):
     fat = fat * n
 
 print(f'Fatorial de {num} ({num}!): {fat}')
-    
