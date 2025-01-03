@@ -5,7 +5,6 @@
 
 #biblioteca math para calcular o desvio padrão e a mediana
 import math as m
-import sys
 
 #variável e listas para inicialização do programa
 nota = 0
@@ -140,18 +139,26 @@ while nota >= 0:
 
             case 4:
                 #ordenando a lista
-                notas.sort()
+                notas_reserva = notas.copy()
+                notas_reserva.sort()
                 #valores mínimo e máximo
                 minimo = int(input('Digite o valor mínimo: '))
                 maximo = int(input('Digite o valor máximo: '))
 
                 #exibindo a lista
                 print('=-' * 30)
+                contador_notas = 0
                 for i in range(len(notas)):
                     if notas[i] >= minimo and notas[i] <= maximo and notas.count(notas[i]) > 1 and notas[i] != notas[i-1]:
                         print(f'Nota {notas[i]}, {notas.count(notas[i])} vezes')
+                        contador_notas =+ 1
                     if notas[i] >= minimo and notas[i] <= maximo and notas.count(notas[i]) == 1:
                         print(f'Nota {notas[i]}, 1 vez')
+                        contador_notas =+ 1
+                
+                #mensagem de erro
+                if contador_notas == 0:
+                    print('Não há nenhuma nota entre o intervalo informado.')
 
             #adicionando novo aluno e sua nota
             case 5:
