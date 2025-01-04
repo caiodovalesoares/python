@@ -11,9 +11,6 @@ nota = 0
 alunos = ['caio', 'bia', 'theo', 'maria', 'leo']
 notas = [7.2, 8.0, 7.2, 6.0, 5.4]
 
-#ordem alfabética
-ordem_alfabetica = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-
 #estrutura de repetição para identificar notas negativas
 while nota >= 0:
     #opções para o usuário
@@ -103,20 +100,16 @@ while nota >= 0:
                         print(f'{notas[i]}, Aluno: {alunos[i]}')
 
             case 3:
-                #ordenando a lista em ordem alfabética
-                for i in range(len(notas)):
-                        for j in range((len(notas)) - 1):
-                            alunos[j] = alunos[j].lower()
-                            for k in range(len(alunos[j])):
-                                l = 0
-                                nome1 = alunos[j]
-                                nome2 = alunos[j+1]
-                                if ordem_alfabetica.index(nome1[l]) > ordem_alfabetica.index(nome2[l]):
-                                    notas[j], notas[j+1] = notas[j+1], notas[j]
-                                    alunos[j], alunos[j+1] = alunos[j+1], alunos[j]
-                                    break
-                                if ordem_alfabetica.index(nome1[l]) == ordem_alfabetica.index(nome2[l]):
-                                    l += 1
+                #convertendo todos os nomes para minúsculas
+                alunos = [aluno.lower() for aluno in alunos]
+
+                #ordenando a lista de alunos e notas em ordem alfabética
+                alunos_notas = sorted(zip(alunos, notas))
+                alunos, notas = zip(*alunos_notas)
+
+                #convertendo de volta para listas
+                alunos = list(alunos)
+                notas = list(notas)
 
                 #lendo a string desejada
                 string = str(input('Digite a string desejada: '))
@@ -148,12 +141,12 @@ while nota >= 0:
                 #exibindo a lista
                 print('=-' * 30)
                 contador_notas = 0
-                for i in range(len(notas)):
-                    if notas[i] >= minimo and notas[i] <= maximo and notas.count(notas[i]) > 1 and notas[i] != notas[i-1]:
-                        print(f'Nota {notas[i]}, {notas.count(notas[i])} vezes')
+                for i in range(len(notas_reserva)):
+                    if notas_reserva[i] >= minimo and notas_reserva[i] <= maximo and notas_reserva.count(notas_reserva[i]) > 1 and notas_reserva[i] != notas_reserva[i-1]:
+                        print(f'Nota {notas_reserva[i]}, {notas_reserva.count(notas_reserva[i])} vezes')
                         contador_notas =+ 1
-                    if notas[i] >= minimo and notas[i] <= maximo and notas.count(notas[i]) == 1:
-                        print(f'Nota {notas[i]}, 1 vez')
+                    if notas_reserva[i] >= minimo and notas_reserva[i] <= maximo and notas_reserva.count(notas_reserva[i]) == 1:
+                        print(f'Nota {notas_reserva[i]}, 1 vez')
                         contador_notas =+ 1
                 
                 #mensagem de erro
